@@ -1,23 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { LocalThemedBox } from './LocalThemedBox';
-import { ThemeContext, ThemeProvider } from './ThemeProvider';
+import { ThemeContext } from './ThemeProvider';
 
 const Page = () => {
-
-    const {theme,setTheme} = useContext(ThemeContext);
-
+      const themeToggle = useContext(ThemeContext)
     return(
-        <div className={'bg-'+theme} id="themed-page">
-            <p id="themed-text-container" className={'txt-'+theme}>
+        <div className={`container bg-${themeToggle.theme}`} id="themed-page">
+            <p id="themed-text-container" className={`txt-${themeToggle.theme}`}>
                 lorem ipsum dolor iterit n stuff
             </p>
-            {/* 'btn btn-'+theme 'txt-'+theme */}
-            <button className={`btn btn-${theme} txt-${theme}`} id="themed-button">Themed Button</button>
-           
-        <LocalThemedBox/>
-           
+            <button className="btn" id="themed-button">Sup</button>
+            <LocalThemedBox />
         </div>
     )
 }
-
 export { Page }
